@@ -6,7 +6,7 @@ function App() {
 
   // UseEffect com fetch (requisições assíncronas)
   useEffect(() => {
-    fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
       .then((resposta) => resposta.json())
       .then((dados) => {
         setTarefas(dados); //Salva os dados vindo da API no estado
