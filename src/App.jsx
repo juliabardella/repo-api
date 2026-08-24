@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [tarefas, setTarefas] = useState([]);
-  const [carregando, setCarregando] = useState(true);
+  const [carregando, setCarregando] = useState(false);
 
   // UseEffect com fetch (requisições assíncronas)
   useEffect(() => {
