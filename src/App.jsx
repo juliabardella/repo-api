@@ -14,28 +14,35 @@ function App() {
       });
   }, []); // Array vazio para executar apenas UMA vez ao abrir a tela
 
-  return (
-    <>
-      <div>
-        <div>
-          <h2>Tarefas vindas da API</h2>
-          <p>Consumindo dados de JSONPlaceholder via fetch e useEffect</p>
-          {carregando ? (
-            <div>Carregando...</div>
-          ) : (
-            <ul>
-              {tarefas.map((item) => (
-                <li key={item.id}>{item.title}
-                {item.completed ? 'Concluído' 
-                : 'Pendente'}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
-    </>
-  )
+   return (
+    <div className="container mt-5">
+      <h2 className="text-center text-primary">Lista de Tarefas</h2>
 
+      {carregando ? (
+        <p className="text-center">Carregando...</p>
+      ) : (
+        <div className="row">
+
+          {tarefas.map((item) => (
+            <div className="col-md-6 mb-3" key={item.id}>
+              <div className="card shadow-sm">
+                <div className="card-body">
+
+                  <h5 className="card-title">{item.title}</h5>
+
+                  {item.completed ? (
+                    <span className="badge bg-success">Concluído</span>
+                  ) : (
+                    <span className="badge bg-warning text-dark">Pendente</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
